@@ -1,0 +1,13 @@
+# The main pipeline for dne_databricks_de
+resources:
+  pipelines:
+    dne_databricks_de_pipeline:
+      name: dne_databricks_de_pipeline
+      catalog: innovationday2024
+      target: dne_databricks_de_${bundle.environment}
+      libraries:
+        - notebook:
+            path: ../src/dlt_pipeline.ipynb
+
+      configuration:
+        bundle.sourcePath: ${workspace.file_path}/src
